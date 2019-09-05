@@ -6,12 +6,12 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   StyleSheet,
-  TouchableOpacity
+  Dimensions
 } from "react-native";
 import colors from "../styles/color";
 import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
-
+import Notification from "../components/Notification";
 export default class Login extends Component {
   constructor() {
     super();
@@ -19,9 +19,16 @@ export default class Login extends Component {
     this.state = {
       user: null,
       email: "",
-      password: ""
+      password: "",
+      formValid: true,
+      error: ""
     };
   }
+
+  handleCloseNotification = () => {
+    this.setState({ formValid: true });
+  };
+
   static navigationOptions = {
     headerTintColor: colors.green01,
     headerStyle: {
@@ -41,7 +48,9 @@ export default class Login extends Component {
         this.setState({ user });
         console.log(user);
       })
-      .catch(error => console.log(error));
+      .catch(error =>
+        this.setState({ error: error.message, formValid: false })
+      );
   };
   componentWillUnmount() {
     if (this.unsubscriber) {
@@ -56,9 +65,18 @@ export default class Login extends Component {
     // parent class change handler is always called with field name and value
     this.setState({ password: password });
   };
+  static navigationOptions = {
+    header: null
+  };
   render() {
+    const { formValid } = this.state;
+    const showNotification = formValid ? false : true;
+    const bgColor = formValid ? colors.green01 : colors.darkOrange;
     return (
-      <KeyboardAvoidingView style={styles.wrapper} behavior="padding">
+      <KeyboardAvoidingView
+        style={[{ backgroundColor: bgColor }, styles.wrapper]}
+        behavior="padding"
+      >
         <View style={styles.scrollViewWrapper}>
           <ScrollView style={styles.scrollView}>
             <Text style={styles.loginHeader}>Login</Text>
@@ -83,7 +101,17 @@ export default class Login extends Component {
               customStyle={{ marginBottom: 30 }}
             />
           </ScrollView>
-          <NextArrowButton handleLogin={this.Login} />
+          <View style={styles.nextButtonWrapper}>
+            <NextArrowButton handleLogin={this.Login} />
+          </View>
+        </View>
+        <View>
+          <Notification
+            showNotification={showNotification}
+            handleCloseNotification={this.handleCloseNotification}
+            title="Error"
+            message={this.state.error}
+          />
         </View>
       </KeyboardAvoidingView>
     );
@@ -92,8 +120,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
-    flex: 1,
-    backgroundColor: colors.green01
+    flex: 1
   },
   scrollView: {
     paddingLeft: 30,
@@ -110,5 +137,16 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: "300",
     marginBottom: 40
+  },
+  notificationWrapper: {
+    position: "absolute",
+    bottom: -20,
+    left: 0,
+    right: 0
+  },
+  nextButtonWrapper: {
+    alignItems: "flex-end",
+    right: 20,
+    bottom: 50
   }
 });
