@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
+import Loader from "../components/Loader";
 import colors from "../styles/color";
 import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
@@ -21,7 +22,8 @@ export default class Login extends Component {
       email: "",
       password: "",
       formValid: true,
-      error: ""
+      error: "",
+      loadingVisible: false
     };
   }
 
@@ -41,15 +43,21 @@ export default class Login extends Component {
     });
   }
   Login = () => {
+    this.setState({ loadingVisible: true });
+
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(user => {
         this.setState({ user });
-        console.log(user);
+        this.setState({ loadingVisible: false });
       })
       .catch(error =>
-        this.setState({ error: error.message, formValid: false })
+        this.setState({
+          error: error.message,
+          formValid: false
+          // loadingVisible: false
+        })
       );
   };
   componentWillUnmount() {
@@ -69,7 +77,7 @@ export default class Login extends Component {
     header: null
   };
   render() {
-    const { formValid } = this.state;
+    const { formValid, loadingVisible } = this.state;
     const showNotification = formValid ? false : true;
     const bgColor = formValid ? colors.green01 : colors.darkOrange;
     return (
@@ -112,6 +120,7 @@ export default class Login extends Component {
             title="Error"
             message={this.state.error}
           />
+          <Loader modalVisible={loadingVisible} animationType="fade" />
         </View>
       </KeyboardAvoidingView>
     );
