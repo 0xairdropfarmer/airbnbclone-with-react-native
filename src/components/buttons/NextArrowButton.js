@@ -12,13 +12,14 @@ import colors from "../../styles/color";
 
 export default class NextArrowButton extends Component {
   render() {
-    const { disabled, handleLogin } = this.props;
+    const { disabled, handelPress } = this.props;
     // console.log()
     return (
       <View style={styles.buttonWrapper}>
         <TouchableHighlight
-          onPress={handleLogin}
+          onPress={handelPress}
           style={[{ opacity: 0.6 }, styles.button]}
+          disabled={disabled}
         >
           <Icon
             name="angle-right"

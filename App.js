@@ -9,6 +9,8 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Login from "./src/screens/Login";
 import LoggedOut from "./src/screens/LoggedOut";
+import ForgotPassword from "./src/screens/ForgotPassword";
+
 const AppNavigator = createStackNavigator(
   {
     Login: {
@@ -16,10 +18,13 @@ const AppNavigator = createStackNavigator(
     },
     LoggedOut: {
       screen: LoggedOut
+    },
+    ForgotPassword: {
+      screen: ForgotPassword
     }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "ForgotPassword"
   }
 );
 export default createAppContainer(AppNavigator);

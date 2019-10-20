@@ -31,12 +31,6 @@ export default class Login extends Component {
     this.setState({ formValid: true });
   };
 
-  static navigationOptions = {
-    headerTintColor: colors.green01,
-    headerStyle: {
-      backgroundColor: colors.green01
-    }
-  };
   componentDidMount() {
     this.unsubscriber = firebase.auth().onAuthStateChanged(user => {
       this.setState({ user });
@@ -97,6 +91,7 @@ export default class Login extends Component {
               borderBottomColor={colors.white}
               inputType="email"
               customStyle={{ marginBottom: 30 }}
+              showCheckmark={email === "test@gmail.com"}
             />
             <InputField
               labelText="PASSWORD"
@@ -107,10 +102,11 @@ export default class Login extends Component {
               borderBottomColor={colors.white}
               inputType="password"
               customStyle={{ marginBottom: 30 }}
+              showCheckmark={password === "12345"}
             />
           </ScrollView>
           <View style={styles.nextButtonWrapper}>
-            <NextArrowButton handleLogin={this.Login} />
+            <NextArrowButton handelPress={this.Login} />
           </View>
         </View>
         <View>
