@@ -6,10 +6,34 @@ import {
   View,
   Image
 } from "react-native";
+import { AccessToken, LoginManager } from "react-native-fbsdk";
+import firebase from "react-native-firebase";
 import colors from "../styles/color";
 import RoundedButton from "../components/buttons/RoundedButton";
 import Icon from "react-native-vector-icons/dist/FontAwesome";
 export default class LoggedOut extends Component {
+  async FacebookLogin() {
+    const result = await LoginManager.logInWithPermissions([
+      "public_profile",
+      "email"
+    ]);
+
+    if (result.isCancelled) {
+      throw new Error("User cancelled the login process");
+    }
+    const data = await AccessToken.getCurrentAccessToken();
+
+    if (!data) {
+      throw new Error("Something went wrong obtaining access token");
+    }
+
+    const credential = firebase.auth.FacebookAuthProvider.credential(
+      data.accessToken
+    );
+
+    await firebase.auth().signInWithCredential(credential);
+    return this.props.navigation.navigate("Home");
+  }
   render() {
     return (
       <View style={styles.wrapper}>
@@ -28,6 +52,7 @@ export default class LoggedOut extends Component {
             icon={
               <Icon name="facebook" size={20} style={styles.facebookIcon} />
             }
+            onPress={() => this.FacebookLogin()}
           />
           <RoundedButton text="Create Account" textColor={colors.white} />
           <TouchableHighlight

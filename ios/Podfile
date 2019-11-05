@@ -33,6 +33,8 @@ target 'airbnbclone' do
   pod 'Firebase/Auth'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
   target 'airbnbcloneTests' do
     inherit! :search_paths
     # Pods for testing

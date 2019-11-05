@@ -5,9 +5,12 @@ import colors from "../../styles/color";
 
 export default class RoundedButton extends Component {
   render() {
-    const { text, color, icon, backgroundColor } = this.props;
+    const { text, color, icon, backgroundColor, onPress } = this.props;
     return (
-      <TouchableHighlight style={[{ backgroundColor }, styles.wrapper]}>
+      <TouchableHighlight
+        style={[{ backgroundColor }, styles.wrapper]}
+        onPress={onPress}
+      >
         <View style={styles.ButtonTextWrapper}>
           {icon}
           <Text style={[{ color }, styles.buttonText]}>{text}</Text>

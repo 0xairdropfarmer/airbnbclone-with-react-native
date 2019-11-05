@@ -18,6 +18,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1CDCF81275BD40478BBEB7DA /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E82DBE829F54385AC88ACFB /* SimpleLineIcons.ttf */; };
 		1E6F2021873F487EAEBFE5CE /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37F1B068B2A74F18A82E9EA3 /* Entypo.ttf */; };
+		2110E347235EFD1B00E97D4F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 2110E346235EFD1B00E97D4F /* Fonts */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -74,6 +75,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = airbnbclone/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = airbnbclone/main.m; sourceTree = "<group>"; };
 		1F69C04FD1CE4D95BD0EAC44 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		2110E346235EFD1B00E97D4F /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* airbnbclone-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "airbnbclone-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* airbnbclone-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "airbnbclone-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3535CF7800589AED0F7B9A /* Pods-airbnbcloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airbnbcloneTests.debug.xcconfig"; path = "Target Support Files/Pods-airbnbcloneTests/Pods-airbnbcloneTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				2110E346235EFD1B00E97D4F /* Fonts */,
 				0172F87322F67EF700CA33EE /* react-native-gesture-handler */,
 				13B07FAE1A68108700A75B9A /* airbnbclone */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -411,6 +414,7 @@
 				798C716D95014346A0E0CF2A /* FontAwesome5_Solid.ttf in Resources */,
 				F2EFE8ABB57B40C5A053F837 /* Fontisto.ttf in Resources */,
 				719BFCEFDF8B4AC782453610 /* Foundation.ttf in Resources */,
+				2110E347235EFD1B00E97D4F /* Fonts in Resources */,
 				08832268860E426E9CEE4D22 /* Ionicons.ttf in Resources */,
 				F4EC50255DE646DD8DFD4A93 /* MaterialCommunityIcons.ttf in Resources */,
 				DD6BCD420B94453CB1CE208A /* MaterialIcons.ttf in Resources */,
@@ -495,10 +499,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-airbnbclone/Pods-airbnbclone-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -517,9 +520,8 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
