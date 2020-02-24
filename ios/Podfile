@@ -3,7 +3,8 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 target 'airbnbclone' do
   # Pods for airbnbclone
-  pod 'Firebase/Auth'
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+  pod 'RNFBDatabase', :path => '../node_modules/@react-native-firebase/database'
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -30,11 +31,11 @@ target 'airbnbclone' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-  pod 'Firebase/Auth'
+ 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
-  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
-
+  pod 'FBSDKCoreKit', :modular_headers => true
+  
+ 
   target 'airbnbcloneTests' do
     inherit! :search_paths
     # Pods for testing

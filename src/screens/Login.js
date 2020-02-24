@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import firebase from "react-native-firebase";
 import {
   View,
   Text,
@@ -13,6 +12,7 @@ import colors from "../styles/color";
 import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
 import Notification from "../components/Notification";
+import { firebase } from '@react-native-firebase/auth';
 export default class Login extends Component {
   constructor() {
     super();

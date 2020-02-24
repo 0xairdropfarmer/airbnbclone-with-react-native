@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "839181499488",
+    "firebase_url": "https://airbnbclone-b96af.firebaseio.com",
+    "project_id": "airbnbclone-b96af",
+    "storage_bucket": "airbnbclone-b96af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839181499488:android:0b6df226c6d278fe621705",
+        "android_client_info": {
+          "package_name": "com.airbnbclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839181499488-jsq8gc93sg9k0b40bgvb72gt7sfallqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhcrOZpCOhdseNrVODCTxJk0Ec-nhwV7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839181499488-jsq8gc93sg9k0b40bgvb72gt7sfallqj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "839181499488-ho52si7rp53obn2fc673scepuave2qof.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.invertase.RNFirebaseStarter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

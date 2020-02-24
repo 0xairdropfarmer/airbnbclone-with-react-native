@@ -11,6 +11,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+#import "RNSplashScreen.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,12 +32,15 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 
   BOOL handled =  [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options];
   // Add any custom logic here.
+  [RNSplashScreen show];
   return handled;
 }
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

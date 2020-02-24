@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Alert
 } from "react-native";
-import firebase from "react-native-firebase";
+import { firebase } from '@react-native-firebase/auth';
 import colors from "../styles/color";
 import InputField from "../components/form/InputField";
 import Notification from "../components/Notification";
@@ -32,12 +32,12 @@ export default class ForgotPassword extends Component {
     firebase
       .auth()
       .sendPasswordResetEmail(this.state.email)
-      .then(function() {
+      .then(function () {
         Alert.alert("email sent");
 
         this.props.navigation.navigate("Login");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         Alert.alert(error.message);
       });
   };

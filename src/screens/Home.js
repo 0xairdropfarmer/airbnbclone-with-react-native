@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import {
   View,
   TextInput,
@@ -8,17 +8,27 @@ import {
   ScrollView,
   StyleSheet
 } from "react-native";
-
-export default class Home extends PureComponent {
+import firebase from "react-native-firebase";
+export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
-
+  static navigationOptions = {
+    title: "Home"
+  };
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+      } else {
+        alert("Your need to login first");
+        this.props.navigation.navigate("LoggedOut");
+      }
+    });
+  }
   render() {
     return (
       <ScrollView scrollEventThrottle={16}>
-        <View style={{ flex: 1, backgroundColor: "white", paddingTop: 20 }}>
+        <View style={{ flex: 1, backgroundColor: "white", paddingTop: 50 }}>
           <Text
             style={{
               fontSize: 24,

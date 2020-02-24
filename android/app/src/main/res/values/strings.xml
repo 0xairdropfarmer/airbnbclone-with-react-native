@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">airbnbclone</string>
+	<string name="app_name">
+		airbnbclone
+	</string>
+	<string name="facebook_app_id">
+		272669286566137
+	</string>
+	<string name="fb_login_protocol_scheme">
+		fb272669286566137
+	</string>
 </resources>

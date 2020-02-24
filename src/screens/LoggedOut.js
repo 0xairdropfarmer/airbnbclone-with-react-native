@@ -7,11 +7,15 @@ import {
   Image
 } from "react-native";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
-import firebase from "react-native-firebase";
+import { firebase } from '@react-native-firebase/auth';
 import colors from "../styles/color";
 import RoundedButton from "../components/buttons/RoundedButton";
 import Icon from "react-native-vector-icons/dist/FontAwesome";
+
 export default class LoggedOut extends Component {
+  static navigationOptions = {
+    header: null
+  };
   async FacebookLogin() {
     const result = await LoginManager.logInWithPermissions([
       "public_profile",
@@ -32,7 +36,8 @@ export default class LoggedOut extends Component {
     );
 
     await firebase.auth().signInWithCredential(credential);
-    return this.props.navigation.navigate("Home");
+
+    return this.props.navigation.navigate("RequestSendNotification");
   }
   render() {
     return (
@@ -99,7 +104,6 @@ const styles = StyleSheet.create({
   welcomeWrapper: {
     flex: 1,
     display: "flex",
-    marginTop: 30,
     padding: 20
   },
   logo: {
